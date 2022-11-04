@@ -1,20 +1,30 @@
-import { Link } from "react-router-dom";
+import { LayoutComponents } from "../../components/LayoutComponents";
 import { useState } from "react";
 import logo from "../../assets/logo.svg";
-import { LayoutComponents } from "../../components/LayoutComponents";
+import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   return (
     <LayoutComponents>
       <form className="login-form">
-        <span className="login-form-title">Bem-Vindo!</span>
+        <span className="login-form-title">Cadastre-se agora:</span>
 
         <span className="login-form-title">
           <img src={logo} alt="Logo" />
         </span>
+
+        <div className="wrap-input">
+          <input
+            className={name !== "" ? "has-val input" : "input"}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <span className="focus-input" data-placeholder="Nome"></span>
+        </div>
 
         <div className="wrap-input">
           <input
@@ -33,7 +43,7 @@ export const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <span className="focus-input" data-placeholder="Password"></span>
+          <span className="focus-input" data-placeholder="Senha"></span>
         </div>
 
         <div className="container-login-forym-btn">
@@ -41,9 +51,9 @@ export const Login = () => {
         </div>
 
         <div className="text-center">
-          <span className="txt1">Não possui conta?</span>
-          <Link className="txt2" to="/register">
-            Criar conta.
+          <span className="txt1">Já possui conta?</span>
+          <Link className="txt2" to="/login">
+            Entrar.
           </Link>
         </div>
       </form>

@@ -1,9 +1,6 @@
-import './styles.css'
-import { AppRouter } from './routes';
+import "./assets/global.css";
+import { AppRouter } from "./routes";
 
-export const App= () => {
-
-  return (
-    <AppRouter />  
-  );
-}
+export const App = () => {
+  return <AppRouter />;
+};
